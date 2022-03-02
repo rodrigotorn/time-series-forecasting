@@ -17,6 +17,12 @@ data.rename(
   },
   inplace=True,
 )
+
+start = data['timestamp'].iloc[0]
+end = data['timestamp'].iloc[-1]
+data['timestamp'] = \
+  pd.date_range(start, end, freq='15min')
+
 data.set_index(
   ['timestamp'],
   inplace=True,
